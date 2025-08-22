@@ -175,6 +175,7 @@ export default function WeatherCard({ data, favorites, toggleFavorite }) {
           <p className="cloth-text">👕 오늘은 <b>{clothing}</b> 추천!</p>
           {umbrellaAdvice && <p>☔ {umbrellaAdvice}</p>}
           {gapAdvice && <p>⚠️ {gapAdvice}</p>}
+          <div className="clip-path-div"></div>
         </div>
       </div>
     </div>
