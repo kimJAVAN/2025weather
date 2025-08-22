@@ -1,0 +1,95 @@
+.main-wea-card{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center;
+    align-items: center; */
+    width: 100%;
+    height: calc(100% - 100px);
+    position: absolute;
+    top: 130px;
+}
+.main-wea-card .wea-img-wrap{
+    position: relative;
+    margin-bottom: 100px;
+}
+.main-wea-card .hum-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 300px;
+    transform: translate(-50%, -20%);
+}
+.main-wea-card .todays-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0px;
+}
+.main-wea-card .icon-img{
+    width: 35px;
+}
+.main-wea-card .icon-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-wea-card .temp-text{
+    font-size: 40px;
+}
+.main-wea-card .mal-div{
+    position:absolute;
+    top: 20px;
+    background: white;
+    padding: 20px 20px;
+    border-radius: 15px;
+    left: 50%;
+    transform: translate(-50%,0%);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+}
+.main-wea-card .clip-path-div{
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+}
+.main-wea-card .today-text{
+    background: #111;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+.main-wea-card .cloth-text{
+    white-space: nowrap;
+}
+.main-wea-card .back-img{
+    width: 120%;
+    /* position: absolute;
+    top: 0;
+    z-index: 1; */
+}
+.main-wea-card .school-img{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 470px;
+    /* z-index: 2; */
+    transform: translate(-50%, 0%);
+}
+.main-wea-card .left-today-text-wrap{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-right: 2px dashed grey;
+    padding-right: 30px;
+}

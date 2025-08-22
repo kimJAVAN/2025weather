@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './Search.css'
 
 function SearchBar({ onSearch }) {
   const [city, setCity] = useState("")
@@ -11,15 +12,15 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+    <form onSubmit={handleSubmit} className="search-form flex gap-2 mb-4">
       <input
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="도시 이름 입력 (예: Seoul)"
-        className="border rounded-lg px-3 py-2"
+        className="search-box"
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 rounded-lg">
+      <button type="submit" className="search-btn">
         검색
       </button>
     </form>

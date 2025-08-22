@@ -1,0 +1,20 @@
+.search-form {
+    display: flex;
+    align-items: center;
+}
+.search-form .search-box{
+    border-radius: 15px 0px 0px 15px;
+    padding: 5px 15px;
+    width: 330px;
+    height: 30px;
+    border: 2px solid #5ea3db;
+}
+.search-form .search-btn{
+    border:  2px solid #5ea3db;
+    background-color:  #5ea3db;;
+    color: white;
+    width: 50px;
+    height: 44px;
+    border-radius: 0px 15px 15px 0px;
+    font-family: 'omyu_pretty';
+}

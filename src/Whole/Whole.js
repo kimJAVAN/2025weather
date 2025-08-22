@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import SearchBar from "../Search/Search.js"
 import WeatherCard from "../WeatherCard/WeatherCard.js"
 import Loading from "../Loading/Loading.js"
+import './Whole.css'
 
 const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY
 
 function App() {
-
   const [weather, setWeather] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -16,7 +16,6 @@ function App() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         async (pos) => {
-          console.log("위치 가져오기 성공 ✅", pos)
           const { latitude, longitude } = pos.coords
           fetchWeatherByCoords(latitude, longitude)
         },
@@ -27,12 +26,10 @@ function App() {
         }
       )
     } else {
-      console.error("이 브라우저는 위치 기능을 지원하지 않습니다.")
       setError("이 브라우저는 위치 기능을 지원하지 않습니다.")
       setLoading(false)
     }
   }, [])
-
 
   // 위도/경도로 날씨 호출
   const fetchWeatherByCoords = async (lat, lon) => {
@@ -42,9 +39,8 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}&lang=kr`
       )
       const data = await res.json()
-      console.log("API 응답1:", data)
-
       setWeather(data)
+      setError(null)
     } catch (e) {
       setError("데이터를 불러오는 중 오류가 발생했습니다.")
     } finally {
@@ -60,8 +56,6 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}&lang=kr`
       )
       const data = await res.json()
-      console.log("API 응답2:", data)
-
       if (data.cod === "404") {
         setError("도시를 찾을 수 없습니다.")
         setWeather(null)
@@ -77,15 +71,19 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-sky-100 flex flex-col items-center p-6">
-      <h1 className="text-2xl font-bold mb-4">🌤️ 날씨 어시스턴트</h1>
+    <div className="weatherDiv min-h-screen bg-sky-100 flex flex-col items-center p-6">
+      <div className="wea-wrapper">
+        <div className="search-div">
+          <h1 className="main-Text text-2xl font-bold mb-4">🌤️ 다른 도시 날씨는?</h1>
+          <SearchBar onSearch={fetchWeatherByCity} />
+        </div>
 
-      <SearchBar onSearch={fetchWeatherByCity} />
 
-      {loading && <Loading />}
-      {error && <p className="text-red-500">{error}</p>}
-      
-      {weather && weather.weather && <WeatherCard data={weather} />}
+        {loading && <Loading />}
+        {error && <p className="text-red-500">{error}</p>}
+
+        {weather && <WeatherCard data={weather} />}
+      </div>
     </div>
   )
 }

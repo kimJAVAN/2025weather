@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.weatherDiv{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ddd;
+    font-family: 'omyu_pretty';
+    font-size: 20px;
+}
+.weatherDiv .wea-wrapper{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+.weatherDiv .search-div{
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.weatherDiv .main-Text{
+    font-family: 'ONE-Mobile-POP';
+    font-size: 20px;
+    /* margin-bottom: 10px; */
+}
