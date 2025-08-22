@@ -77,8 +77,10 @@ const getWeatherIcon = (weather, icon, windSpeed) => {
   }
 };
 
-export default function WeatherCard({ data }) {
+export default function WeatherCard({ data, favorites, toggleFavorite }) {
   const { main, weather, wind } = data;
+
+  const cityName = data.name
 
   // ✅ 현재 온도
   const temp = main?.temp;
@@ -136,7 +138,17 @@ export default function WeatherCard({ data }) {
 
   return (
     <div className="main-wea-card bg-white shadow-md rounded-xl p-6 w-full max-w-md">
-      <h2 className="today-text text-xl font-semibold mb-2">{`${year} / ${month} / ${day} (${weekday}) // ${data.name} 날씨`}</h2>
+      <div className="today-text">
+        <h2 className=" text-xl font-semibold mb-2">{`${year} / ${month} / ${day} (${weekday}) // ${data.name} 날씨`}</h2>
+        <div className="favorite-div mt-2 flex items-center gap-2">
+          <button
+            className={`fav-btn ${favorites.includes(cityName) ? "bg-yellow-300" : "bg-white"}`}
+            onClick={() => toggleFavorite(cityName)}
+          >
+            {favorites.includes(cityName) ? "★ 즐겨찾기" : "☆ 즐겨찾기"}
+          </button>
+        </div>
+      </div>
 
       {/* ✅ 날씨 아이콘 + 현재 온도 */}
       <div className="todays-wrap flex items-center justify-end mb-2">
@@ -163,7 +175,6 @@ export default function WeatherCard({ data }) {
           <p className="cloth-text">👕 오늘은 <b>{clothing}</b> 추천!</p>
           {umbrellaAdvice && <p>☔ {umbrellaAdvice}</p>}
           {gapAdvice && <p>⚠️ {gapAdvice}</p>}
-          <div className="clip-path-div"></div>
         </div>
       </div>
     </div>

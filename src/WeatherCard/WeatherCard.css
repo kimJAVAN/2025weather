@@ -5,8 +5,8 @@
     align-items: center; */
     width: 100%;
     height: calc(100% - 100px);
-    position: absolute;
-    top: 130px;
+    /* position: absolute; */
+    /* top: 200px; */
 }
 .main-wea-card .wea-img-wrap{
     position: relative;
@@ -68,15 +68,26 @@
     justify-content: center;
     align-items: center;
     padding: 10px 0px;
+    gap: 10px;
+}
+.main-wea-card .fav-btn{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'omyu_pretty';
+    line-height: 21px;
 }
 .main-wea-card .cloth-text{
     white-space: nowrap;
 }
 .main-wea-card .back-img{
     width: 120%;
-    /* position: absolute;
-    top: 0;
-    z-index: 1; */
 }
 .main-wea-card .school-img{
     position: absolute;
