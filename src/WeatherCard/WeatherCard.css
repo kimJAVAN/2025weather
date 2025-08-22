@@ -93,3 +93,16 @@
     border-right: 2px dashed grey;
     padding-right: 30px;
 }
+
+@media screen and (max-width : 768px) {
+    .search-form .search-box{
+        width: 270px;
+    }
+    .main-wea-card .hum-img{
+        height: 250px;
+        /* transform: translate(-50%,-25%); */
+    }
+    .main-wea-card .temp-text{
+        font-size: 32px;
+    }
+}
